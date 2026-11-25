@@ -14,5 +14,20 @@ services:
       timeout: 5s
       retries: 10
 
+  pipeline:
+    build: .
+    profiles: ["pipeline"]
+    env_file: .env
+    environment:
+      # inside the compose network the database host is "postgres", not localhost
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./reports:/app/reports
+
 volumes:
   pgdata:
