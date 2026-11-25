@@ -2,7 +2,9 @@
 
 [![CI](https://github.com/aaronGeb/automated-sales-data-pipeline/actions/workflows/ci.yml/badge.svg)](https://github.com/aaronGeb/automated-sales-data-pipeline/actions/workflows/ci.yml)
 
-A Python ETL pipeline that ingests a retail sales Excel export, validates every row against an explicit data contract, quarantines bad rows with reasons, loads clean data into PostgreSQL idempotently, and generates analytics reports.
+A modular Python ETL pipeline that ingests retail sales data from Excel, applies data cleaning and validation rules, quarantines rejected records with detailed rejection reasons, and loads validated data into PostgreSQL using transactional, idempotent database operations.
+
+The pipeline also generates SQL-driven analytical reports for sales performance and regional analysis.
 
 On a 541,909-row workbook it runs end to end in about 27 seconds (most of it reading the `.xlsx`). The load itself takes about 12 seconds.
 
