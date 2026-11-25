@@ -1,0 +1,27 @@
+dataset: sales_transactions
+columns: null
+invoice_id:
+  type: string
+  nullable: false
+stock_code:
+  type: string
+  nullable: false
+description:
+  type: string
+  nullable: true
+quantity:
+  type: integer
+  nullable: false
+invoice_date:
+  type: datetime
+  nullable: false
+unit_price:
+  type: float
+  nullable: false
+  minimum: 0
+customer_id:
+  type: string
+  nullable: true
+country:
+  type: string
+  nullable: false
