@@ -21,7 +21,7 @@ dependencies = [
 ]
 
 [project.scripts]
-automated-sales-data-pipeline = "automated_sales_data_pipeline:main"
+sales-pipeline = "pipeline.main:app"
 
 [build-system]
 requires = ["uv_build>=0.8.3,<0.9.0"]
@@ -36,3 +36,6 @@ dev = [
     "ruff>=0.17.3",
     "types-pyyaml>=6.0.12.20261103",
 ]
+[tool.uv.build-backend]
+module-name = "pipeline"
+module-root = "src"
