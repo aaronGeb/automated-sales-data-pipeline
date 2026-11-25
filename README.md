@@ -1,6 +1,7 @@
 # Automated Sales Data Pipeline
 
 [![CI](https://github.com/aaronGeb/automated-sales-data-pipeline/actions/workflows/ci.yml/badge.svg)](https://github.com/aaronGeb/automated-sales-data-pipeline/actions/workflows/ci.yml)
+
 A Python ETL pipeline that ingests a retail sales Excel export, validates every row against an explicit data contract, quarantines bad rows with reasons, loads clean data into PostgreSQL idempotently, and generates analytics reports.
 
 On a 541,909-row workbook it runs end to end in about 27 seconds (most of it reading the `.xlsx`). The load itself takes about 12 seconds.
@@ -110,3 +111,7 @@ sql/ddl/           table and index definitions, run on first container start
 sql/analytics/     one .sql file per report
 tests/             unit/ and integration/ (integration needs PostgreSQL)
 ```
+
+## License
+
+Released under the license in [LICENSE](LICENSE).
