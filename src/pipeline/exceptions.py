@@ -32,3 +32,15 @@ def test_row_hash_changes_when_a_business_value_changes():
 def test_row_hash_handles_missing_customer_and_description():
     df = _df(description=[None], customer_id=[None]).astype({"customer_id": "Int64"})
     assert len(add_row_hash(df)["row_hash"][0]) == 64
+
+
+class PipelineError(Exception):
+    """Base class for all pipeline failures."""
+
+
+class ExtractError(PipelineError):
+    """A source file could not be read."""
+
+
+class LoadError(PipelineError):
+    """Loading into the database failed."""

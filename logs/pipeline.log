@@ -1,0 +1,9 @@
+2026-11-25 23:22:01,481 INFO    pipeline: Starting run for Online Retail.xlsx
+2026-11-25 23:22:20,403 INFO    pipeline: Extract: 541909 rows
+2026-11-25 23:22:21,152 INFO    pipeline: Transform: 541909 rows cleaned
+2026-11-25 23:22:21,653 INFO    pipeline: Validate: 534128 valid, 7781 rejected
+2026-11-25 23:22:21,680 INFO    pipeline: Quarantine: rejected rows written to data/rejected/Online Retail_20261125T232221_rejected.csv
+2026-11-25 23:22:28,123 INFO    pipeline.load.loader: Loaded 0 new rows (534128 already present)
+2026-11-25 23:22:28,146 INFO    pipeline: Load: 0 inserted, 534128 already present
+2026-11-25 23:22:28,171 INFO    pipeline: Archive: copied source to data/processed/Online Retail_20261125T232228.xlsx
+2026-11-25 23:22:28,171 INFO    pipeline: Done in 26.7s

@@ -8,8 +8,7 @@ import pandas as pd
 logger = logging.getLogger(__name__)
 
 
-class ExtractError(Exception):
-    """Raise an exception for errors during data read or validation."""
+from pipeline.exceptions import ExtractError
 
 
 def read_sales_excel(
