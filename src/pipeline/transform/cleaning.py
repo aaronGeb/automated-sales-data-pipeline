@@ -35,4 +35,5 @@ def clean_sales(df: pd.DataFrame) -> pd.DataFrame:
     out["invoice_date"] = pd.to_datetime(out["invoice_date"], errors="coerce")
 
     out["is_cancellation"] = out["invoice_no"].str.startswith("C", na=False)
+    out["is_non_product"] = ~out["stock_code"].str.match(r"^\d{5}[A-Z]*$", na=False)
     return out
