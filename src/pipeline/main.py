@@ -14,10 +14,10 @@ from pipeline.extract.excel_reader import read_sales_excel
 from pipeline.load.database import get_engine
 from pipeline.load.loader import load_sales
 from pipeline.logger import setup_logging
+from pipeline.report.generator import generate_reports
 from pipeline.transform.cleaning import clean_sales
 from pipeline.validate.quarantine import write_rejected
 from pipeline.validate.rules import validate_sales
-from pipeline.report.generator import generate_reports
 
 app = typer.Typer(help="Automated sales data pipeline.", no_args_is_help=True)
 logger = logging.getLogger("pipeline")
