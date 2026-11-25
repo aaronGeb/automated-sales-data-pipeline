@@ -1,27 +1,10 @@
 dataset: sales_transactions
-columns: null
-invoice_id:
-  type: string
-  nullable: false
-stock_code:
-  type: string
-  nullable: false
-description:
-  type: string
-  nullable: true
-quantity:
-  type: integer
-  nullable: false
-invoice_date:
-  type: datetime
-  nullable: false
-unit_price:
-  type: float
-  nullable: false
-  minimum: 0
-customer_id:
-  type: string
-  nullable: true
-country:
-  type: string
-  nullable: false
+columns:
+  invoice_no: { type: string, nullable: false } # "C" prefix = cancellation
+  stock_code: { type: string, nullable: false } # includes non-product codes (e.g. POST)
+  description: { type: string, nullable: true }
+  quantity: { type: integer, nullable: false } # negative only on cancellations
+  invoice_date: { type: datetime, nullable: false }
+  unit_price: { type: float, nullable: false } # must be > 0 (enforced in rules.py)
+  customer_id: { type: integer, nullable: true } # guest checkouts have no ID
+  country: { type: string, nullable: false }
