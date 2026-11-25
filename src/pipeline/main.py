@@ -17,6 +17,7 @@ from pipeline.logger import setup_logging
 from pipeline.transform.cleaning import clean_sales
 from pipeline.validate.quarantine import write_rejected
 from pipeline.validate.rules import validate_sales
+from pipeline.report.generator import generate_reports
 
 app = typer.Typer(help="Automated sales data pipeline.", no_args_is_help=True)
 logger = logging.getLogger("pipeline")
@@ -67,6 +68,7 @@ def run(
         logger.info(
             "Load: %d inserted, %d already present", load.inserted, load.skipped
         )
+        generate_reports(get_engine(settings.database_url), settings.reports_dir)
 
         if archive:
             settings.processed_dir.mkdir(parents=True, exist_ok=True)
@@ -83,6 +85,18 @@ def run(
         raise typer.Exit(code=2)
 
     logger.info("Done in %.1fs", time.time() - started)
+
+
+@app.command()
+def report() -> None:
+    """Generate CSV reports from the loaded data into reports/."""
+    settings = get_settings()
+    setup_logging(settings.log_dir)
+    try:
+        generate_reports(get_engine(settings.database_url), settings.reports_dir)
+    except Exception:
+        logger.exception("Report generation failed")
+        raise typer.Exit(code=1)
 
 
 if __name__ == "__main__":

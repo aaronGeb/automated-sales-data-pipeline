@@ -7,3 +7,14 @@
 2026-11-25 23:22:28,146 INFO    pipeline: Load: 0 inserted, 534128 already present
 2026-11-25 23:22:28,171 INFO    pipeline: Archive: copied source to data/processed/Online Retail_20261125T232228.xlsx
 2026-11-25 23:22:28,171 INFO    pipeline: Done in 26.7s
+2026-11-25 23:49:38,150 ERROR   pipeline: Report generation failed
+Traceback (most recent call last):
+  File "/Users/Aaron/automated-sales-data-pipeline/src/pipeline/main.py", line 95, in report
+    generate_reports(get_engine(settings.database_url), settings.reports_dir)
+                                                        ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Aaron/automated-sales-data-pipeline/.venv/lib/python3.11/site-packages/pydantic/main.py", line 1110, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Settings' object has no attribute 'reports_dir'
+2026-11-25 23:52:28,347 INFO    pipeline.report.generator: Report daily_sales: 305 rows -> reports/daily_sales.csv
+2026-11-25 23:52:29,035 INFO    pipeline.report.generator: Report regional_summary: 38 rows -> reports/regional_summary.csv
+2026-11-25 23:52:29,456 INFO    pipeline.report.generator: Report top_products: 20 rows -> reports/top_products.csv

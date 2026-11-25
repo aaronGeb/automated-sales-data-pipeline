@@ -14,6 +14,7 @@ class Settings(BaseSettings):
     schema_path: Path = Path("config/schemas/sales_schema.yaml")
     processed_dir: Path = Path("data/processed")
     rejected_dir: Path = Path("data/rejected")
+    reports_dir: Path = Path("reports")
     log_dir: Path = Path("logs")
 
 
