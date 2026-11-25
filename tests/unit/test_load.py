@@ -4,16 +4,16 @@ from pipeline.load.loader import add_row_hash
 
 
 def _df(**kw):
-    base = dict(
-        invoice_no=["536365"],
-        stock_code=["85123A"],
-        description=["X"],
-        quantity=[1],
-        invoice_date=[pd.Timestamp("2010-12-01 08:26:00")],
-        unit_price=[2.55],
-        customer_id=[17850],
-        country=["United Kingdom"],
-    )
+    base = {
+        "invoice_no": ["536365"],
+        "stock_code": ["85123A"],
+        "description": ["X"],
+        "quantity": [1],
+        "invoice_date": [pd.Timestamp("2010-12-01 08:26:00")],
+        "unit_price": [2.55],
+        "customer_id": [17850],
+        "country": ["United Kingdom"],
+    }
     base.update(kw)
     return pd.DataFrame(base).astype({"quantity": "Int64", "customer_id": "Int64"})
 

@@ -5,6 +5,7 @@ import shutil
 import time
 from datetime import datetime
 from pathlib import Path
+from typing import Annotated
 
 import typer
 
@@ -30,12 +31,13 @@ def main() -> None:
 
 @app.command()
 def run(
-    file: Path = typer.Argument(
-        ..., exists=True, dir_okay=False, help="Path to the .xlsx file"
-    ),
-    archive: bool = typer.Option(
-        True, help="Copy the file to data/processed/ after a successful load"
-    ),
+    file: Annotated[
+        Path, typer.Argument(exists=True, dir_okay=False, help="Path to the .xlsx file")
+    ],
+    archive: Annotated[
+        bool,
+        typer.Option(help="Copy the file to data/processed/ after a successful load"),
+    ],
 ) -> None:
     """Run extract -> clean -> validate -> load for one Excel file."""
     settings = get_settings()

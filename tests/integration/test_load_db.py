@@ -1,6 +1,7 @@
 import pandas as pd
 import pytest
 from sqlalchemy import text
+from sqlalchemy.exc import OperationalError
 
 from pipeline.load.database import get_engine
 from pipeline.load.loader import load_sales
@@ -12,7 +13,7 @@ def engine():
     try:
         with eng.connect() as c:
             c.execute(text("SELECT 1"))
-    except Exception:
+    except OperationalError:
         pytest.skip("Postgres not reachable (run `docker compose up -d`)")
     yield eng
     with eng.begin() as c:

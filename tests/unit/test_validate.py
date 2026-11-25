@@ -4,18 +4,18 @@ from pipeline.validate.rules import validate_sales
 
 
 def _row(**kw):
-    base = dict(
-        invoice_no="536365",
-        stock_code="85123A",
-        description="X",
-        quantity=1,
-        invoice_date=pd.Timestamp("2010-12-01"),
-        unit_price=2.5,
-        customer_id=17850,
-        country="United Kingdom",
-        is_cancellation=False,
-        source_row=2,
-    )
+    base = {
+        "invoice_no": "536365",
+        "stock_code": "85123A",
+        "description": "X",
+        "quantity": 1,
+        "invoice_date": pd.Timestamp("2010-12-01"),
+        "unit_price": 2.5,
+        "customer_id": 17850,
+        "country": "United Kingdom",
+        "is_cancellation": False,
+        "source_row": 2,
+    }
     base.update(kw)
     return base
 
