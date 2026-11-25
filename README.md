@@ -1,1 +1,0 @@
-# automated-sales-data-pipeline
