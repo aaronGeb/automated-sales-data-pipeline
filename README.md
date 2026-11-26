@@ -61,6 +61,35 @@ make lint                         # ruff + mypy
 
 Exit codes: `0` success, `1` expected pipeline failure (extract/load), `2` bad arguments or an unexpected error.
 
+## Evidence
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="docs/images/postgresql-results.png" alt="PostgreSQL results" width="100%"><br>
+      <b>PostgreSQL results</b><br>
+      Successfully loaded records and row counts.
+    </td>
+    <td width="50%">
+      <img src="docs/images/github-actions.png" alt="GitHub Actions" width="100%"><br>
+      <b>GitHub Actions</b><br>
+      Passing lint, type checks, and tests on every push.
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="docs/images/analytics-dashboard.png" alt="Analytics dashboard" width="100%"><br>
+      <b>Analytical reports</b><br>
+      Monthly revenue, top products, and regional performance.
+    </td>
+    <td width="50%">
+      <img src="docs/images/pipeline-execution.png.png" alt="Pipeline execution log" width="100%"><br>
+      <b>Pipeline execution</b><br>
+      Extraction, validation, and loading statistics for one run.
+    </td>
+  </tr>
+</table>
+
 ## Validation rules
 
 | Reject reason                        | Rule                                                            |
