@@ -37,7 +37,7 @@ def run(
     archive: Annotated[
         bool,
         typer.Option(help="Copy the file to data/processed/ after a successful load"),
-    ],
+    ] = True,
 ) -> None:
     """Run extract -> clean -> validate -> load for one Excel file."""
     settings = get_settings()

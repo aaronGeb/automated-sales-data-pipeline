@@ -30,3 +30,15 @@ AttributeError: 'Settings' object has no attribute 'reports_dir'
 2026-11-25 21:05:05,038 INFO    pipeline.report.generator: Report top_products: 20 rows -> reports/top_products.csv
 2026-11-25 21:05:05,109 INFO    pipeline: Archive: copied source to data/processed/Online Retail_20261125T210505.xlsx
 2026-11-25 21:05:05,109 INFO    pipeline: Done in 28.7s
+2026-11-26 09:30:10,430 INFO    pipeline: Starting run for Online Retail.xlsx
+2026-11-26 09:30:30,073 INFO    pipeline: Extract: 541909 rows
+2026-11-26 09:30:30,934 INFO    pipeline: Transform: 541909 rows cleaned
+2026-11-26 09:30:31,446 INFO    pipeline: Validate: 534128 valid, 7781 rejected
+2026-11-26 09:30:31,475 INFO    pipeline: Quarantine: rejected rows written to data/rejected/Online Retail_20261126T093031_rejected.csv
+2026-11-26 09:30:47,144 INFO    pipeline.load.loader: Loaded 534128 new rows (0 already present)
+2026-11-26 09:30:47,263 INFO    pipeline: Load: 534128 inserted, 0 already present
+2026-11-26 09:30:47,979 INFO    pipeline.report.generator: Report daily_sales: 305 rows -> reports/daily_sales.csv
+2026-11-26 09:30:49,306 INFO    pipeline.report.generator: Report regional_summary: 38 rows -> reports/regional_summary.csv
+2026-11-26 09:30:50,102 INFO    pipeline.report.generator: Report top_products: 20 rows -> reports/top_products.csv
+2026-11-26 09:30:50,137 INFO    pipeline: Archive: copied source to data/processed/Online Retail_20261126T093050.xlsx
+2026-11-26 09:30:50,137 INFO    pipeline: Done in 39.7s
