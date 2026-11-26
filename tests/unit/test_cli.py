@@ -1,8 +1,11 @@
+import re
+
 from typer.testing import CliRunner
 
 from pipeline.main import app
 
 runner = CliRunner()
+ANSI = re.compile(r"\x1b\[[0-9;]*m")
 
 
 def test_run_rejects_missing_file(tmp_path):
@@ -13,4 +16,4 @@ def test_run_rejects_missing_file(tmp_path):
 def test_run_help_shows_archive_default():
     result = runner.invoke(app, ["run", "--help"])
     assert result.exit_code == 0
-    assert "--no-archive" in result.output
+    assert "--no-archive" in ANSI.sub("", result.output)
